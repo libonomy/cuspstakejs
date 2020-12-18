@@ -5,7 +5,7 @@ const mnemonic = "swear buyer security impulse public stereo peasant correct cro
 
 describe("Libonomycluster", function() {
 	const chainId = "testnet";
-	const libonomy = cuspstakejs.network("https://lcd-cosmos-free.cosmostation.io", chainId);
+	const libonomy = cuspstakejs.network("http://127.0.0.1:1317/", chainId);
 	describe("getAddress", function () {
 
 		it("gets a libonomy address from mnemonic", function () {

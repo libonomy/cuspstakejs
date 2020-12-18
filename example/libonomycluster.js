@@ -4,7 +4,7 @@ const cuspstakejs = require("../src");
 const mnemonic = "swear buyer security impulse public stereo peasant correct cross tornado bid discover anchor float venture deal patch property cool wreck eight dwarf december surface";
 const chainId = "testnet";
 // This rest server URL may be disabled at any time. In order to maintain stable blockchain service, it is recommended to prepare your rest server.
-const libonomy = cuspstakejs.network("https://lcd-cosmos-free.cosmostation.io", chainId);
+const libonomy = cuspstakejs.network("//http://127.0.0.1:1317", chainId);
 libonomy.setBech32MainPrefix("libonomy");
 libonomy.setPath("m/44'/118'/0'/0/0");
 const address = libonomy.getAddress(mnemonic);
