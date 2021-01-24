@@ -121,17 +121,16 @@ Libonomy.prototype.newStdMsg = function(input) {
 Libonomy.prototype.sign = function(stdSignMsg, ecpairPriv, modeType = "sync") {
 	// The supported return types includes "block"(return after tx commit), "sync"(return after CheckTx) and "async"(return right away).
 	let signMessage = new Object;
-	if (stdSignMsg.json.msgs[0].type == "irishub/bank/Send" ||
-		stdSignMsg.json.msgs[0].type == "irishub/stake/BeginUnbonding" ||
-		stdSignMsg.json.msgs[0].type == "irishub/stake/BeginRedelegate") {
-		signMessage = stdSignMsg.jsonForSigningIrisTx;
-	} else {
+	
 		signMessage = stdSignMsg.json;
-	}
+	console.log(JSON.stringify(sortObject(signMessage)))
 	const hash = crypto.createHash('sha256').update(JSON.stringify(sortObject(signMessage))).digest('hex');
+	console.log(hash)
 	const buf = Buffer.from(hash, 'hex');
 	let signObj = secp256k1.sign(buf, ecpairPriv);
+	// console.log(signObj)
 	var signatureBase64 = Buffer.from(signObj.signature, 'binary').toString('base64');
+	// console.log(signatureBase64)
 	let signedTx = new Object;
 
 		signedTx = {
@@ -154,7 +153,7 @@ Libonomy.prototype.sign = function(stdSignMsg, ecpairPriv, modeType = "sync") {
 		    "mode": modeType
 		}
 	
-
+		
 	return signedTx;
 }
 

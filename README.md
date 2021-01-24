@@ -57,18 +57,18 @@ libonomy.getAccounts(address).then(data => {
 				value: {
 					amount: [
 						{
-							amount: String(100000),
-							denom: "libocoin"
+							amount: String(100), 	// 6 decimal places ( 1 LBY = 1000000flby)
+							denom: "flby"           // coin denomination is flby
 						}
 					],
 					from_address: address,
-					to_address: "libonomy1fnk3lxlks7tdg6x55ynv6vggtnd73ycqun3rf4"
+					to_address: "libonomy18vhdczjut44gpsy804crfhnd5nq003nz0nf20v"
 				}
 			}
 		],
 		chain_id: chainId,
-		fee: { amount: [ { amount: String(5000), denom: "libocoin" } ], gas: String(200000) },
-		memo: "",
+		fee: { amount: [ { amount: String(20000), denom: "flby" } ], gas: String(200000) },
+		memo: "MY_LIB_TEST_MEMO",
 		account_number: String(data.result.value.account_number),
 		sequence: String(data.result.value.sequence)
 	});
@@ -86,4 +86,4 @@ libonomy.broadcast(signedTx).then(response => console.log(response));
 ## Documentation
 
 This library is simple and easy to use. We don't have any formal documentation yet other than examples. Ask for help if our examples aren't enough to guide you
-This library is under active development and you need to update to later versions or on major release
+This library is under active development and you need to update to latest versions or on major release
