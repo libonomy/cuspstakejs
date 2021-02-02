@@ -4,7 +4,7 @@ const cuspstakejs = require("../src");
 const mnemonic = "swear buyer security impulse public stereo peasant correct cross tornado bid discover anchor float venture deal patch property cool wreck eight dwarf december surface";
 const chainId = "testnet-01";
 // This rest server URL may be disabled at any time. In order to maintain stable blockchain service, it is recommended to prepare your rest server.
-const libonomy = cuspstakejs.network("//http://127.0.0.1:1317", chainId);
+const libonomy = cuspstakejs.network("http://127.0.0.1:1317", chainId);
 libonomy.setBech32MainPrefix("libonomy");
 libonomy.setPath("m/44'/118'/0'/0/0");
 const address = libonomy.getAddress(mnemonic);
@@ -24,7 +24,7 @@ libonomy.getAccounts(address).then(data => {
 						}
 					],
 					from_address: address,
-					to_address: "libonomy18vhdczjut44gpsy804crfhnd5nq003nz0nf20v"
+					to_address: "libonomy1da4v3fxy3xkkgqr5g60cjmcpvjcjdd5e4m0qwa"
 				}
 			}
 		],

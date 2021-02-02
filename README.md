@@ -83,6 +83,12 @@ const signedTx = libonomy.sign(stdSignMsg, ecpairPriv);
 libonomy.broadcast(signedTx).then(response => console.log(response));
 ```
 
+Validate Wallet Address
+```js
+libonomy.validateAddress("libonomy1da4v3fxy3xkkgqr5g60cjmcpvjcjdd5e4m0qwa")
+
+```
+
 ## Documentation
 
 This library is simple and easy to use. We don't have any formal documentation yet other than examples. Ask for help if our examples aren't enough to guide you

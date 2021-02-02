@@ -172,7 +172,47 @@ Libonomy.prototype.broadcast = function(signedTx) {
 	})
 	.then(response => response.json())
 }
+Libonomy.prototype.validateAddress = (address) => {
+	let decoded;
+  
+	try {
+	  decoded = bech32.decode(address);
+	} catch (error) {
+	  return {
+		bech32: false,
+		message:"Invalid Address !"
+	  };
+	}
 
+  
+	const prefixesNetwork = {
+	  libonomy: 'libonomy'
+	}
+	const prefix = prefixesNetwork[decoded.prefix];
+  
+	if (prefix === undefined) {
+	    return {
+			bech32: false,
+			message:"Invalid Address. Prefix not present !"
+		  };
+	}
+	const witnessVersion = decoded.words[0];
+  
+	if (witnessVersion < 0 || witnessVersion > 16) {
+	    return {
+			bech32: false,
+			message:"Invalid Address !"
+		  };
+	}
+
+	return {
+	  bech32: true,
+      message:"Valid Address !",
+	  prefix,
+	  address
+	};
+  };
+  
 module.exports = {
 	network: network
 }
