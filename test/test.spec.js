@@ -26,8 +26,8 @@ describe("Libonomycluster", function() {
 						value: {
 							amount: [
 								{
-									amount: String(100000), 	// 6 decimal places (1000000 libocoin = 1 LIBOCOIN)
-									denom: "libocoin"
+									amount: String(100000), 	// 6 decimal places (1000000 flby = 1 LBY)
+									denom: "flby"
 								}
 							],
 							from_address: address,
@@ -36,7 +36,7 @@ describe("Libonomycluster", function() {
 					}
 				],
 				chain_id: chainId,
-				fee: { amount: [ { amount: String(5000), denom: "libocoin" } ], gas: String(200000) },
+				fee: { amount: [ { amount: String(5000), denom: "flby" } ], gas: String(200000) },
 				memo: "",
 				account_number: String(5711),
 				sequence: String(4)
