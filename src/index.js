@@ -196,14 +196,14 @@ Libonomy.prototype.validateAddress = (address) => {
 			message:"Invalid Address. Prefix not present !"
 		  };
 	}
-	const witnessVersion = decoded.words[0];
+	// const witnessVersion = decoded.words[0];
   
-	if (witnessVersion < 0 || witnessVersion > 16) {
-	    return {
-			bech32: false,
-			message:"Invalid Address !"
-		  };
-	}
+	// if (witnessVersion < 0 || witnessVersion > 16) {
+	//     return {
+	// 		bech32: false,
+	// 		message:"Invalid Address !"
+	// 	  };
+	// }
 
 	return {
 	  bech32: true,
