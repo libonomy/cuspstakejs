@@ -212,7 +212,31 @@ Libonomy.prototype.validateAddress = (address) => {
 	  address
 	};
   };
-  
+Libonomy.prototype.getAddressBalance = function(address) {
+	if (typeof address !== "string") {
+		throw new Error("address expects a string")
+	}
+	if (address) {
+		if (!this.validateAddress(address)) throw new Error("Invalid Address !");
+	}
+
+	let	balanceApi = `/bank/balances/${address}`;
+	
+
+	return fetch(this.url + balanceApi, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+	})
+	.then(async response => {
+		let balanceModel = await response.json();
+		if(balanceModel.result.length == 0)
+		return [{denom:'', amount:'0'}];
+		else
+		return balanceModel.result;
+	})
+}  
 module.exports = {
 	network: network
 }
