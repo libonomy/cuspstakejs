@@ -67,7 +67,7 @@ describe("Libonomycluster", function () {
   });
 
   describe("create account", function () {
-    it("create new account 12 or 24 menomics", function () {
+    it("create new account with 12 or 24 words menomics", function () {
       const createdAccount = libonomy.createAccount(length);
       const createdAccountWithMnemonics = libonomy.restoreAccountWithMnemonics(
         createdAccount.mnemonic
