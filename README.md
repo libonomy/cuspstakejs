@@ -1,8 +1,9 @@
+This library provides supports for libonomy transaction signing and broadcasting.
 
-This library provides supports for libonomy transaction signing and broadcasting. 
 ## Installation
 
 In order to fully use this library, you need to run a local or remote full node and set up its rest server.
+
 ### NPM
 
 ```bash
@@ -19,7 +20,7 @@ yarn add @libonomy/cuspstakejs
 
 This version does not support browsers
 
-## Import 
+## Import
 
 #### NodeJS
 
@@ -28,26 +29,31 @@ const cuspstakejs = require("@libonomy/cuspstakejs");
 ```
 
 ## Usage
-- Generate address from mnemonic 
+
+- Generate address from mnemonic
+
 ```js
 const cuspstakejs = require("@libonomy/cuspstakejs");
 
 const chainId = "testnet";
 const libonomy = cuspstakejs.network("YOUR_NODE_URL", chainId);
 
-const mnemonic = "YOUR_SEED_PHRASE"
+const mnemonic = "YOUR_SEED_PHRASE";
 libonomy.setPath("m/44'/118'/0'/0/0"); //hd path for libonomy
 const address = libonomy.getAddress(mnemonic);
 const ecpairPriv = libonomy.getECPairPriv(mnemonic);
 ```
 
 Generate ECPairPriv value that is needed for signing signatures
+
 ```js
 const ecpairPriv = libonomy.getECPairPriv(mnemonic);
 ```
 
-Transfer LIBOCOIN to designated address. 
-* Make sure to input proper type, account number, and sequence of the libonomy account to generate StdSignMsg. You can get those account information on blockchain 
+Transfer LIBOCOIN to designated address.
+
+- Make sure to input proper type, account number, and sequence of the libonomy account to generate StdSignMsg. You can get those account information on blockchain
+
 ```js
 libonomy.getAccounts(address).then(data => {
 	let stdSignMsg = libonomy.newStdMsg({
@@ -78,20 +84,36 @@ libonomy.getAccounts(address).then(data => {
 ```
 
 Sign transaction by using stdSignMsg and broadcast by using [/txs](https://YOUR_NODE_URL/txs) REST API
+
 ```js
 const signedTx = libonomy.sign(stdSignMsg, ecpairPriv);
-libonomy.broadcast(signedTx).then(response => console.log(response));
+libonomy.broadcast(signedTx).then((response) => console.log(response));
 ```
 
 Validate Wallet Address
-```js
-libonomy.validateAddress("libonomy1da4v3fxy3xkkgqr5g60cjmcpvjcjdd5e4m0qwa")
 
+```js
+libonomy.validateAddress("libonomy1da4v3fxy3xkkgqr5g60cjmcpvjcjdd5e4m0qwa");
 ```
- Wallet Address Balance
-```js
-libonomy.getAddressBalance("libonomy1da4v3fxy3xkkgqr5g60cjmcpvjcjdd5e4m0qwa")
 
+Wallet Address Balance
+
+```js
+libonomy.getAddressBalance("libonomy1da4v3fxy3xkkgqr5g60cjmcpvjcjdd5e4m0qwa");
+```
+
+Create New Account
+
+```js
+libonomy.createAccount(length);
+
+Note: You can pass mnemonics length as an argument in this function 12 or 24.
+```
+
+Restore Account with 12 or 24 Mnemonics
+
+```js
+libonomy.restoreAccountWithMnemonics(mnemonics);
 ```
 
 ## Documentation
