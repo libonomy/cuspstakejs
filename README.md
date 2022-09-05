@@ -116,6 +116,24 @@ Restore Account with 12 or 24 Mnemonics
 libonomy.restoreAccountWithMnemonics(mnemonics);
 ```
 
+Convert hex adress to libonomy bech32 address
+
+```js
+libonomy.hextoBech32('0x4CEd1f9BF68796D468d4a126cD31085CdBe89300');
+
+Note: Address should be in hex format.
+
+```
+
+Convert libonomy bech32 adress to hex address
+
+```js
+libonomy.bech32toHex('libonomy1fnk3lxlks7tdg6x55ynv6vggtnd73ycqun3rf4');
+
+Note: Address should be in libonomy bech32 format.
+
+```
+
 ## Documentation
 
 This library is simple and easy to use. We don't have any formal documentation yet other than examples. Ask for help if our examples aren't enough to guide you

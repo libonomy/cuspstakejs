@@ -3,6 +3,7 @@ const cuspstakejs = require("../src");
 const length = 12;
 const mnemonic =
   "swear buyer security impulse public stereo peasant correct cross tornado bid discover anchor float venture deal patch property cool wreck eight dwarf december surface";
+const hexAddress = "0x4CEd1f9BF68796D468d4a126cD31085CdBe89300";
 
 const accountMock = {
   mnemonic,
@@ -80,6 +81,17 @@ describe("Libonomycluster", function () {
     it("restore account with 12 or 24 words mnemonics", function () {
       const createdAccount = libonomy.restoreAccountWithMnemonics(mnemonic);
       assert.deepEqual(accountMock, createdAccount);
+    });
+  });
+
+  describe("Address conversion", function () {
+    it("convert address from bech32 to hex", function () {
+      const generatedHexAddress = libonomy.bech32toHex(accountMock.address);
+      assert.deepEqual(generatedHexAddress, hexAddress);
+    });
+    it("convert address from hex to bech32", function () {
+      const generatedBechAddress = libonomy.hextoBech32(hexAddress);
+      assert.deepEqual(generatedBechAddress, accountMock.address);
     });
   });
 });

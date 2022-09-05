@@ -1,6 +1,6 @@
 {
   "name": "@libonomy/cuspstakejs",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A JavasSript Open Source Library for signing and broadcasting transactions on libonomy",
   "main": "./src/index.js",
   "repository": {
@@ -24,10 +24,11 @@
   "author": "libonomy",
   "license": "MIT",
   "dependencies": {
-    "bech32": "^1.1.3",
+    "bech32": "^2.0.0",
     "bip32": "^1.0.2",
     "bip39": "^2.5.0",
     "bitcoinjs-lib": "^4.0.2",
+    "crypto-addr-codec": "^0.1.7",
     "node-fetch": "^2.6.0",
     "secp256k1": "^3.6.2"
   },
