@@ -13,14 +13,8 @@ function hexEncoder() {
 
 function hexDecoder() {
   return (data) => {
-    const stripped = stripHexPrefix(data);
-
-    if (
-      !isValidChecksumAddress(data) &&
-      stripped !== stripped.toLowerCase() &&
-      stripped !== stripped.toUpperCase()
-    ) {
-      throw Error("Invalid address checksum");
+    if (!isValidChecksumAddress(data)) {
+      throw Error("Invalid hex address ");
     }
 
     return Buffer.from(stripHexPrefix(data), "hex");

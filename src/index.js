@@ -289,6 +289,9 @@ Libonomy.prototype.hextoBech32 = function (address) {
 };
 
 Libonomy.prototype.bech32toHex = function (address) {
+  if (!this.validateAddress(address).bech32) {
+    throw new Error("Invalid bech32 address");
+  }
   const hexAddress = converter("libonomy").toHex(address);
   return hexAddress;
 };
