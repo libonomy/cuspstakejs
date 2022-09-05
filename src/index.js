@@ -8,10 +8,11 @@
 global.fetch || (global.fetch = require("node-fetch").default);
 const bip39 = require("bip39");
 const bip32 = require("bip32");
-const bech32 = require("bech32");
+const { bech32 } = require("bech32");
 const secp256k1 = require("secp256k1");
 const crypto = require("crypto");
 const bitcoinjs = require("bitcoinjs-lib");
+const converter = require("./utils/addressConversion");
 
 let Libonomy = function (url, chainId) {
   this.url = url;
@@ -280,6 +281,16 @@ Libonomy.prototype.restoreAccountWithMnemonics = function (mnemonic) {
     privateKey: privateKey,
     publicKey: publicKey,
   };
+};
+
+Libonomy.prototype.hextoBech32 = function (address) {
+  const bechAddress = converter("libonomy").toBech32(address);
+  return bechAddress;
+};
+
+Libonomy.prototype.bech32toHex = function (address) {
+  const hexAddress = converter("libonomy").toHex(address);
+  return hexAddress;
 };
 
 module.exports = {
