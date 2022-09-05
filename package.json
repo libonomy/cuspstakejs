@@ -1,6 +1,6 @@
 {
   "name": "@libonomy/cuspstakejs",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A JavasSript Open Source Library for signing and broadcasting transactions on libonomy",
   "main": "./src/index.js",
   "repository": {
