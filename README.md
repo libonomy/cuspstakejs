@@ -1,6 +1,67 @@
-This library provides supports for libonomy transaction signing and broadcasting.
+<br />
+<p align="center">
+  <h3 align="center">CuspstakeJS</h3>
 
-## Installation
+NPM library for javascript functionalities and interaction with libonomy SDK.
+
+<b>Halt Status:</b> In-production: Libonomy Mainnet.
+
+</p>
+
+## Getting Started (Developer Setup)
+
+Use this section when working with the library source code directly.
+
+###  Prerequisites
+
+Make sure you have the following installed:
+
+- **Node.js**
+
+  Install Node.js from:
+
+  ```sh
+  https://nodejs.org/en/
+  ```
+
+  ⚠️ **Supported Node.js version:** `16.x`
+
+- **npm** (comes with Node.js)
+
+  Update npm to the latest version:
+
+  ```sh
+  npm install -g npm@latest
+  ```
+
+### Installation(Local Development)
+
+1. **Clone the repository**
+
+2. **Navigate to the project directory**
+
+3. **Install dependencies**
+
+```sh
+npm install
+```
+
+If dependency issues occur, you may use:
+
+```sh
+npm install --force
+```
+
+⚠️ Use `--force` only if necessary, as it may install incompatible versions.
+
+### Publishing (Optional)
+
+This library is already published on NPM as @libonomy/cuspstakejs. Do not need to publish it unless making official releases.
+
+
+## Installation(Usage)
+
+###  Prerequisites
 
 In order to fully use this library, you need to run a local or remote full node and set up its rest server.
 
@@ -20,7 +81,7 @@ yarn add @libonomy/cuspstakejs
 
 This version does not support browsers
 
-## Import
+### Importing the library
 
 #### NodeJS
 
@@ -28,7 +89,7 @@ This version does not support browsers
 const cuspstakejs = require("@libonomy/cuspstakejs");
 ```
 
-## Usage
+### Usage
 
 - Generate address from mnemonic
 
@@ -134,6 +195,12 @@ Note: Address should be in libonomy bech32 format.
 
 ```
 
-## Documentation
+### Documentation
 
-This library is simple and easy to use. We don't have any formal documentation yet other than examples. Ask for help if our examples aren't enough to guide you
+This library is simple and easy to use. We don't have any formal documentation yet other than examples.
+
+```
+Copyright © 2025 — Libonomy
+```
+
+
